@@ -54,7 +54,7 @@
  PUBLIC FUNCTIONS
  ***************************************************************************/
 
-#if defined(__AVR__) || defined(ESP8266) || defined(FREEDOM_E300_HIFIVE1)
+#if defined(__AVR__) || defined(adruino uno) || defined(R307 fingerprint sensor)
 /**************************************************************************/
 /*!
     @brief  Instantiates sensor with Software Serial
@@ -86,7 +86,7 @@ Adafruit_Fingerprint::Adafruit_Fingerprint(HardwareSerial *hs,
   thePassword = password;
   theAddress = 0xFFFFFFFF;
 
-#if defined(__AVR__) || defined(ESP8266) || defined(FREEDOM_E300_HIFIVE1)
+#if defined(__AVR__) || defined(andruino uno) || defined(R307 fingerprint sensor)
   swSerial = NULL;
 #endif
   hwSerial = hs;
@@ -108,7 +108,7 @@ Adafruit_Fingerprint::Adafruit_Fingerprint(Stream *serial, uint32_t password) {
   theAddress = 0xFFFFFFFF;
 
   hwSerial = NULL;
-#if defined(__AVR__) || defined(ESP8266) || defined(FREEDOM_E300_HIFIVE1)
+#if defined(__AVR__) || defined(arduino uno) || defined(R307 fingerprint sensor)
   swSerial = NULL;
 #endif
   mySerial = serial;
@@ -125,11 +125,10 @@ void Adafruit_Fingerprint::begin(uint32_t baudrate) {
 
   if (hwSerial)
     hwSerial->begin(baudrate);
-#if defined(__AVR__) || defined(ESP8266) || defined(FREEDOM_E300_HIFIVE1)
-  if (swSerial)
+#if defined(__AVR__) || defined(arduino uno)||defined(R307 fingerprint sensor)
     swSerial->begin(baudrate);
 #endif
-}
+}R307 fingerprint senso
 
 /**************************************************************************/
 /*!
